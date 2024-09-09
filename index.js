@@ -11,7 +11,6 @@ const correctMessage = document.getElementById("correct");
 let targetNumber;
 let attempts = 0;
 const maxNumberOfAttempts = 5;
-/*bug 3: the "maxNumberOfAttempts" variable changes over time, so should declare using "let".*/
 
 // Create new message element for out-of-bounds guesses
 const invalidGuessMessage = document.createElement("p");
@@ -59,7 +58,7 @@ function checkGuess() {
     if (guess < targetNumber) {
       tooLowMessage.style.display = "";
     } else {
-      //bug 7: Displays the wrong message when the guess is too high.
+      //bug 6: Displays the wrong message when the guess is too high.
       tooHighMessage.style.display = "";
     }
 
@@ -72,7 +71,7 @@ function checkGuess() {
                                         ? "guess"
                                         : "guesses"
                                     } remaining`;
-    /**If there is only one guess left, it should say "guess" (singular) instead of "guesses" (plural) */
+    /**bug 7: If there is only one guess left, it should say "guess" (singular) instead of "guesses" (plural) */
   }
 
   /*bug 1: Should use "===", not "====".*/
@@ -88,7 +87,7 @@ function checkGuess() {
 
 function hideAllMessages() {
   for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
-    /*bug 6: The loop condition, should be <, not <=.*/
+    /*bug 5: The loop condition, should be <, not <=.*/
     messages[elementIndex].style.display = "none";
   }
 }
@@ -101,11 +100,11 @@ function setup() {
 
   // Reset number of attempts
   attempts = 0;
-  /*bug 5: Here, should reset the attempts to 0, not the maxNumberOfAttempts.*/
+  /*bug 4: Here, should reset the attempts to 0, not the maxNumberOfAttempts.*/
 
   // Enable the input and submit button
   submitButton.disabled = false;
-  /*bug 4: a typo in the word "disabeld"*/
+  /*bug 3: a typo in the word "disabeld"*/
   guessInput.disabled = false;
 
   hideAllMessages();
